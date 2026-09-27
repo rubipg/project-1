@@ -1,0 +1,329 @@
+/* #FFD972 - warm yellow for the opening */
+/* #FCBCB8 - soft pink for Memory 1 */
+/* #C7EAE4 - light blue/green for Memory 2 */
+/* #A7E8BD - soft green for Memory 3 */
+/* #EFA7A7 - dusty pink for Memory 4 */
+
+/* Basic page setup */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Welcome pop-up */
+#welcomePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(92, 64, 51, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Old letter */
+.popup-box {
+    background-color: #FFD972;
+    width: 450px;
+    max-width: 80%;
+    padding: 45px 40px;
+    border: 2px solid #8B5E3C;
+    transform: rotate(-5deg);
+    box-shadow: 10px 10px 0px rgba(7, 59, 76, 0.5);
+    text-align: center;
+}
+
+.popup-box h2 {
+    font-size: 32px;
+    color: #5C4033;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.popup-box p {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #5C4033;
+}
+
+/* Enter button */
+#enterButton {
+    background-color: #EFA7A7;
+    color: #5C4033;
+    margin-top: 20px;
+}
+
+/* All scenes */
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Opening */
+#opening {
+    background-color: #FFD972;
+    /* Brown box border */
+    border: 30px solid #8B5E3C;
+    /* Keeps the border inside the screen */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Multiplication worksheet */
+#memory1 {
+    background-color: #FCBCB8;
+}
+
+/* Flute */
+#memory2 {
+    background-color: #C7EAE4;
+}
+
+/* Parachute */
+#memory3 {
+    background-color: #A7E8BD;
+}
+
+/* Bikes */
+#memory4 {
+    background-color: #EFA7A7;
+}
+
+/* Ending */
+#ending {
+    background-color: #FFD972;
+    border: 30px solid #8B5E3C;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Headings */
+h1 {
+    font-size: 48px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #5C4033;
+}
+
+h2 {
+    font-size: 40px;
+    color: #5C4033;
+}
+
+/* Paragraphs */
+p {
+    font-size: 20px;
+    max-width: 600px;
+    line-height: 1.5;
+    color: #5C4033;
+}
+
+/* Memory images */
+
+.scene img {
+    width: 300px;
+    max-width: 80%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Buttons */
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: #5C4033;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    transform: scale(2);
+}
+
+/* Memory card */
+
+.memory-card {
+    background-color: #FFF8E7;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(92, 64, 51, 0.2);
+    margin: 20px 0;
+}
+
+.box-label {
+    background-color: #FFF8E7;
+    border: 4px dashed #8B5E3C;
+    padding: 60px 90px;
+    margin-bottom: 20px;
+    transform: rotate(3deg);
+    font-size: 24px;
+    color: #8B5E3C;
+}
+
+/* Scroll arrow */
+.scroll-arrow {
+    font-size: 40px;
+    color: #5C4033;
+    margin-top: 30px;
+
+    animation: arrowMove 1.5s infinite;
+}
+
+@keyframes arrowMove {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+.tape {
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tape-left {
+    top: 15px;
+    left: -10px;
+    transform: rotate(-20deg);
+}
+
+.tape-right {
+    top: 15px;
+    right: -10px;
+    transform: rotate(20deg);
+}
+
+/* Memory 1 worksheet */
+.worksheet-card {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Question on top of the worksheet */
+#mathQuestion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF8E7;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #5C4033;
+
+    /* Makes the question gently flicker */
+    animation: questionFlicker 1.5s infinite;
+}
+
+/* The answer/reveal starts hidden */
+#memory1Reveal {
+    display: none;
+}
+
+/* Flicker animation for the question */
+@keyframes questionFlicker {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Memory 2 recorder */
+.recorder-card {
+    cursor: pointer;
+}
+
+/* Makes the recorder gently move */
+#recorderImage {
+    transition: transform 0.3s ease;
+}
+
+/* Recorder moves when the user hovers over it */
+#recorderImage:hover {
+    transform: rotate(-3deg) scale(1.05);
+}
+
+/* Memory 2 text starts hidden */
+#memory2Reveal {
+    display: none;
+}
+
+/* Memory 3 parachute */
+.parachute-card {
+    cursor: pointer;
+}
+
+/* Makes the parachute move smoothly */
+#parachuteImage {
+    transition: transform 0.5s ease;
+}
+
+/* Parachute moves when the user hovers */
+#parachuteImage:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* Memory 3 text starts hidden */
+#memory3Reveal {
+    display: none;
+}
+
+/* Memory 4 bikes */
+.bike-card {
+    cursor: pointer;
+}
+
+/* Makes the bike move smoothly */
+#bikeImage {
+    transition: transform 1s ease;
+}
+
+/* Bikes move when the user hovers */
+#bikeImage:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+/* Memory 4 text starts hidden */
+#memory4Reveal {
+    display: none;
+}
