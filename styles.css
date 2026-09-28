@@ -4,19 +4,20 @@
 /* #A7E8BD - soft green for Memory 3 */
 /* #EFA7A7 - dusty pink for Memory 4 */
 
+/* ----------------------------------------------------------- */
+
 /* Basic page setup */
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
-/* Welcome pop-up */
+/* ----------------------------------------------------------- */
+
+/* WELCOME POP-UP */
+
+/* Darkens the Welcome pop-up screen */
 #welcomePopup {
     position: fixed;
     top: 0;
@@ -30,7 +31,7 @@ body {
     z-index: 10;
 }
 
-/* Old letter */
+/* popup box styling */
 .popup-box {
     background-color: #FFD972;
     width: 450px;
@@ -38,7 +39,7 @@ body {
     padding: 45px 40px;
     border: 2px solid #8B5E3C;
     transform: rotate(-5deg);
-    box-shadow: 10px 10px 0px rgba(7, 59, 76, 0.5);
+    box-shadow: 10px 10px 0px black;
     text-align: center;
 }
 
@@ -59,95 +60,14 @@ body {
 /* Enter button */
 #enterButton {
     background-color: #EFA7A7;
-    color: #5C4033;
     margin-top: 20px;
 }
 
-/* All scenes */
-.scene {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-/* Opening */
-#opening {
-    background-color: #FFD972;
-    /* Brown box border */
-    border: 30px solid #8B5E3C;
-    /* Keeps the border inside the screen */
-    box-sizing: border-box;
-    position: relative;
-}
-
-/* Multiplication worksheet */
-#memory1 {
-    background-color: #FCBCB8;
-}
-
-/* Flute */
-#memory2 {
-    background-color: #C7EAE4;
-}
-
-/* Parachute */
-#memory3 {
-    background-color: #A7E8BD;
-}
-
-/* Bikes */
-#memory4 {
-    background-color: #EFA7A7;
-}
-
-/* Ending */
-#ending {
-    background-color: #FFD972;
-    border: 30px solid #8B5E3C;
-    box-sizing: border-box;
-    position: relative;
-}
-
-/* Headings */
-h1 {
-    font-size: 48px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: #5C4033;
-}
-
-h2 {
-    font-size: 40px;
-    color: #5C4033;
-}
-
-/* Paragraphs */
-p {
-    font-size: 20px;
-    max-width: 600px;
-    line-height: 1.5;
-    color: #5C4033;
-}
-
-/* Memory images */
-
-.scene img {
-    width: 300px;
-    max-width: 80%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 10px;
-}
-
-/* Buttons */
+/* Key Button styling */
 button {
     margin-top: 20px;
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 20px;
     border: none;
     border-radius: 10px;
     background-color: #5C4033;
@@ -158,18 +78,326 @@ button {
 
 /* Button hover effect */
 button:hover {
-    transform: scale(2);
+    transform: scale(1.25);
 }
 
-/* Memory card */
+/* ----------------------------------------------------------- */
 
-.memory-card {
-    background-color: #FFF8E7;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(92, 64, 51, 0.2);
+/* SHARED SCENE STYLES */
+
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Headings */
+h1 {
+    font-size: 45px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #5C4033;
+}
+
+h2 {
+    font-size: 45px;
+    color: #5C4033;
+}
+
+/* Paragraphs */
+p {
+    font-size: 24px;
+    max-width: 600px;
+    line-height: 1.5;
+    color: #5C4033;
+}
+
+/* Memory images */
+.scene img {
+    width: 300px;
+    max-width: 80%;
+    height: auto;
     margin: 20px 0;
+    border-radius: 10px;
 }
+
+/* ----------------------------------------------------------- */
+
+/* OPENING */
+
+#opening {
+    background-color: #FFD972;
+    /* Brown box border */
+    border: 30px solid #8B5E3C;
+    /* Keeps the border inside the screen */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* ----------------------------------------------------------- */
+
+/* MEMORY 1 - MULTIPLICATION WORKSHEET */
+
+#memory1 {
+    background-color: #FCBCB8;
+    position: relative;
+}
+
+/* Worksheet grid */
+.worksheet-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    margin: 15px auto;
+}
+
+.worksheet-card {
+    cursor: pointer;
+}
+
+/* Worksheet images */
+.worksheet-card img {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    animation: worksheetPulse 2s infinite;
+}
+
+
+/* Shows that the worksheet can be clicked */
+.worksheet-card:hover {
+    transform: scale(1.05);
+}
+
+/* Worksheet rotations */
+.worksheet-card:nth-child(1) {
+    transform: rotate(-3deg);
+}
+
+.worksheet-card:nth-child(2) {
+    transform: rotate(0deg);
+}
+
+.worksheet-card:nth-child(3) {
+    transform: rotate(3deg);
+}
+
+/* Math questions floating around the worksheets */
+.math-questions {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Individual math questions */
+.math-question {
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    color: #5C4033;
+    opacity: 0;
+    animation: questionFade 12s infinite;
+}
+
+/* Question positions */
+.question-one {
+    top: 30%;
+    left: 8%;
+}
+
+.question-two {
+    top: 30%;
+    right: 8%;
+    animation-delay: 2s;
+}
+
+.question-three {
+    top: 50%;
+    left: 5%;
+    animation-delay: 4s;
+}
+
+.question-four {
+    top: 50%;
+    right: 5%;
+    animation-delay: 6s;
+}
+
+.question-five {
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 8s;
+}
+
+.question-six {
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 10s;
+}
+
+#memory1Reveal {
+    display: none;
+    margin-top: 20px;
+}
+
+/* First reveal sentence */
+#memory1Reveal p:first-child {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 5px;
+    animation: revealFromLeft 1s ease forwards;
+}
+
+/* Second reveal sentence */
+#memory1Reveal p:last-child {
+    font-size: 30px;
+    margin: 5px;
+    animation: revealFromRight 1s ease forwards;
+}
+
+/* ----------------------------------------------------------- */
+
+/* MEMORY 2 - MUSIC CLASS */
+
+/* Changes the background of the memory */
+#memory2 {
+    background-color: #C7EAE4;
+}
+
+/* Music notes */
+.music-notes {
+    display: flex;
+    gap: 35px;
+    margin: 10px 0;
+}
+
+/* Makes the notes feel like they are floating */
+.music-notes span {
+    font-size: 35px;
+    color: #5C4033;
+    animation: noteFloat 2s infinite ease-in-out;
+}
+
+/* Make each note move at a different time */
+.music-notes span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.music-notes span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.music-notes span:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+/* Makes the recorder gently move */
+#recorderImage {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Recorder moves when the user hovers over it */
+#recorderImage:hover {
+    transform: rotate(1deg) scale(1.05);
+}
+
+#memory2Reveal {
+    display: none;
+}
+
+/* Style both reveal messages */
+#memory2Reveal p {
+    font-size: 25px;
+    width: 400px;
+}
+
+/* ----------------------------------------------------------- */
+
+/* MEMORY 3 - GYM CLASS */
+
+
+/* Parachute */
+#memory3 {
+    background-color: #A7E8BD;
+}
+
+/* Makes the parachute move smoothly */
+#parachuteImage {
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    width: 850px;
+    max-width: 500px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Parachute moves when the user hovers */
+#parachuteImage:hover {
+    transform: scale(1.05);
+}
+
+/* Memory 3 text starts hidden */
+#memory3Reveal {
+    display: none;
+}
+
+/* Makes the reveal text bigger */
+#memory3Reveal p {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* MEMORY 4 - AFTER SCHOOL */
+
+/* Bikes */
+#memory4 {
+    background-color: #EFA7A7;
+}
+
+/* * Makes the bike move smoothly */
+
+#bikeImage {
+    width: 600px;
+    max-width: none;
+    cursor: pointer;
+    transition: transform 1s ease;
+}
+
+/* Bikes move when the user hovers */
+#bikeImage:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+#memory4Reveal {
+    display: none;
+}
+
+/* ----------------------------------------------------------- */
+
+/* ENDING */
+
+#ending {
+    background-color: #FFD972;
+    border: 30px solid #8B5E3C;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* ----------------------------------------------------------- */
+
+/* SHARED DECORATIVE ELEMENTS */
 
 .box-label {
     background-color: #FFF8E7;
@@ -179,31 +407,6 @@ button:hover {
     transform: rotate(3deg);
     font-size: 24px;
     color: #8B5E3C;
-}
-
-/* Scroll arrow */
-.scroll-arrow {
-    font-size: 40px;
-    color: #5C4033;
-    margin-top: 30px;
-
-    animation: arrowMove 1.5s infinite;
-}
-
-@keyframes arrowMove {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(10px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-
 }
 
 .tape {
@@ -225,105 +428,193 @@ button:hover {
     transform: rotate(20deg);
 }
 
-/* Memory 1 worksheet */
-.worksheet-card {
-    position: relative;
-    cursor: pointer;
-}
 
-/* Question on top of the worksheet */
-#mathQuestion {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFF8E7;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 28px;
-    font-weight: bold;
+/* Scroll arrow */
+.scroll-arrow {
+    font-size: 40px;
     color: #5C4033;
-
-    /* Makes the question gently flicker */
-    animation: questionFlicker 1.5s infinite;
+    margin-top: 30px;
+    animation: arrowMove 1.5s infinite;
 }
 
-/* The answer/reveal starts hidden */
-#memory1Reveal {
-    display: none;
-}
+/* ----------------------------------------------------------- */
 
-/* Flicker animation for the question */
-@keyframes questionFlicker {
+/* ANIMATIONS */
+
+@keyframes arrowMove {
+
     0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* Worksheets gently pulse before being clicked */
+
+@keyframes worksheetPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* Questions fade in, stay for a moment, then fade out */
+@keyframes questionFade {
+
+    0% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    35% {
         opacity: 1;
     }
 
     50% {
-        opacity: 0.5;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Memory 1 reveal slides in from the left */
+@keyframes revealFromLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
     }
 
     100% {
         opacity: 1;
+        transform: translateX(0);
     }
+
 }
 
-/* Memory 2 recorder */
-.recorder-card {
-    cursor: pointer;
+/* Memory 1 reveal slides in from the right */
+@keyframes revealFromRight {
+
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
 }
 
-/* Makes the recorder gently move */
-#recorderImage {
-    transition: transform 0.3s ease;
+/* ----------------------------------------------------------- */
+
+/* MEMORY 2  */
+
+
+/* Music notes gently float up and down */
+@keyframes noteFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
 }
 
-/* Recorder moves when the user hovers over it */
-#recorderImage:hover {
-    transform: rotate(-3deg) scale(1.05);
+/* Recorder shakes when clicked */
+@keyframes recorderShake {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+
 }
 
-/* Memory 2 text starts hidden */
-#memory2Reveal {
-    display: none;
+/* ----------------------------------------------------------- */
+
+/* MEMORY 3 */
+
+/* Parachute shakes when clicked */
+@keyframes parachuteShake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    75% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
 }
 
-/* Memory 3 parachute */
-.parachute-card {
-    cursor: pointer;
-}
+/* ----------------------------------------------------------- */
+/* MEMORY 4  */
 
-/* Makes the parachute move smoothly */
-#parachuteImage {
-    transition: transform 0.5s ease;
-}
+/* Bikes ride from the left side to the right side */
+@keyframes bikeRide {
+    0% {
+        transform: translateX(0);
+    }
 
-/* Parachute moves when the user hovers */
-#parachuteImage:hover {
-    transform: scale(1.05) translateY(-10px);
-}
-
-/* Memory 3 text starts hidden */
-#memory3Reveal {
-    display: none;
-}
-
-/* Memory 4 bikes */
-.bike-card {
-    cursor: pointer;
-}
-
-/* Makes the bike move smoothly */
-#bikeImage {
-    transition: transform 1s ease;
-}
-
-/* Bikes move when the user hovers */
-#bikeImage:hover {
-    transform: rotate(-2deg) scale(1.05);
-}
-
-/* Memory 4 text starts hidden */
-#memory4Reveal {
-    display: none;
+    100% {
+        transform: translateX(50%);
+    }
 }

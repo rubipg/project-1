@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> A childhood Time Capsule</title>
+    <title>A Childhood Time Capsule</title>
 
     <!-- Add your stylesheets here -->
     <link rel="stylesheet" href="styles.css">
@@ -14,20 +14,23 @@
 <body>
     <!-- Welcome pop-up -->
     <div id="welcomePopup">
+
         <div class="popup-box">
             <h2>Dear You,</h2>
             <p>You are about to open a little piece of the past. Inside are memories from a childhood you may remember.
             </p>
-
             <p> Take as much time as you need! </p>
             <button id="enterButton"> 🗝️ </button>
         </div>
+
     </div>
 
+    <!-- ----------------------------------------------------------- -->
 
     <!-- Opening scene -->
     <section id="opening" class="scene">
 
+        <!-- Div to mimick tape  -->
         <div class="tape tape-left"></div>
         <div class="tape tape-right"></div>
 
@@ -36,57 +39,89 @@
             <br>
             Handle With Care
         </div>
+
         <h1> A Childhood Time Capsule </h1>
 
         <div class="scroll-arrow">↓</div>
     </section>
 
+    <!-- ----------------------------------------------------------- -->
+
     <!-- Memory 1: Multiplication worksheet -->
     <section id="memory1" class="scene">
-        <h2> Remember This?</h2>
 
+        <h2> Math Class </h2>
         <p class="memory-note">You had 5 minutes to complete the worksheet!</p>
 
-        <!-- Memory Card -->
-        <div class="memory-card worksheet-card">
-            <img src="Assets/Img/Worksheet.jpg" alt="A multiplication worksheet">
+        <div class="math-questions">
 
-            <!--  Question that will change when clicked  -->
-            <div id="mathQuestion"> 6 * 6 = ?</div>
+            <div class="math-question question-one">7 x 8 = ?</div>
+            <div class="math-question question-two">6 x 9 = ?</div>
+            <div class="math-question question-three">4 x 7 = ?</div>
+            <div class="math-question question-four">8 x 5 = ?</div>
+            <div class="math-question question-five">9 x 3 = ?</div>
+            <div class="math-question question-six">7 x 6 = ?</div>
+
         </div>
 
-        <p class="memory-note"> So many questions</p>
+        <!-- Three worksheets in horizontal alignment  -->
+        <div class="worksheet-grid">
+
+            <div class="worksheet-card">
+                <img src="Assets/Img/Worksheet.jpg" alt="A multiplication worksheet">
+            </div>
+
+            <div class="worksheet-card">
+                <img src="Assets/Img/Worksheet.jpg" alt="A multiplication worksheet">
+            </div>
+
+            <div class="worksheet-card">
+                <img src="Assets/Img/Worksheet.jpg" alt="A multiplication worksheet">
+            </div>
+        </div>
 
         <!-- This text starts hidden -->
         <div id="memory1Reveal">
-            <p>You knew the answer.</p>
-            <p>You just needed more time.</p>
+            <p>You knew the answer</p>
+            <p>You just needed more time 😂</p>
         </div>
     </section>
 
-    <!-- Memory 2: Flute -->
-    <section id="memory2" class=" scene">
-        <h2> Music Class </h2>
+    <!-- ----------------------------------------------------------- -->
 
-        <p class="memory-note">Hot Cross Buns</p>
+    <!-- Memory 2: Music Class -->
+    <section id="memory2" class="scene">
 
-        <!-- Memory card -->
+        <h2>Music Class</h2>
+
+        <!-- Music notes -->
+        <div class="music-notes">
+            <span>♪</span>
+            <span>♫</span>
+            <span>🎵</span>
+            <span>🎶</span>
+        </div>
+
+        <!-- Recorder -->
         <div class="memory-card">
             <img id="recorderImage" src="Assets/Img/Recorder.jpg" alt="A recorder used in music class">
         </div>
-        <!-- Need to add sound effect  -->
 
-
+        <!-- This text starts hidden -->
         <div id="memory2Reveal">
-            <p>Three notes. One song.</p>
-            <p>Somehow, everyone knew it.</p>
+            <p class="memory-note"> Hot Cross Buns</p>
+            <p>Three notes. </p>
+            <p>One song.</p>
+            <p>Somehow everyone knew it.</p>
         </div>
 
     </section>
 
+    <!-- ----------------------------------------------------------- -->
+
     <!-- Memory 3: Parachute -->
     <section id="memory3" class="scene">
-        <h2> Gym Class</h2>
+        <h2> Gym Class </h2>
 
         <p class="memory-note">Everyone grab an edge!</p>
 
@@ -104,16 +139,17 @@
 
     </section>
 
+    <!-- ----------------------------------------------------------- -->
+
     <!-- Memory 4: Bikes -->
     <section id="memory4" class="scene">
         <h2>After school</h2>
 
-        <p class="memory-note"> When school was over, there was always somewhere to go</p>
+        <p class="memory-note"> When school was over, there was always somewhere to go </p>
 
         <!-- Memory card -->
         <div class="memory-card">
-
-            <img id="bikeImage" src="Assets/Img/Bikes.jpeg" alt="Kids bike on the front lawn">
+            <img id="bikeImage" src="Assets/Img/Bikes.jpeg" alt="Kids riding a their bikes">
         </div>
 
         <!-- This text starts hidden -->
@@ -123,6 +159,8 @@
         </div>
 
     </section>
+
+    <!-- ----------------------------------------------------------- -->
 
     <!-- Ending -->
     <section id="ending" class="scene">
@@ -136,14 +174,10 @@
             You Might Remember
         </div>
 
-        <p>Some memories may fade, but these little moments will always live with you.</p>
-        <p>Come back whenever you feel like it</p>
-
-
+        <p>Some memories may fade some will always live with you.</p>
+        <p>Come back whenever you feel like it.</p>
 
     </section>
-
-
 
     <!-- Add your script files -->
     <script src="script.js"></script>
