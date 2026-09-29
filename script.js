@@ -88,13 +88,18 @@ let recorderSound = new Audio("Assets/Sound/Hot_Cross_Buns.mp3");
 recorderImage.addEventListener("click", function () {
 
     // Shake the recorder
-    recorderImage.style.animation = "recorderShake 0.6s";
+    recorderImage.style.animation = "recorderShake 0.9s infinite";
 
     // Play the recorder sound
     recorderSound.play();
 
+    // Stop shaking when the music ends
+    recorderSound.onended = function () {
+        recorderImage.style.animation = "none";
+    };
+
     // Show the memory text
-    memory2Reveal.style.display = "block";
+    memory2Reveal.classList.add("show");
 
 });
 
@@ -110,8 +115,8 @@ let memory3Reveal = document.getElementById("memory3Reveal");
 // When the user clicks the parachute
 parachuteImage.addEventListener("click", function () {
 
-    // Shake the parachute
-    parachuteImage.style.animation = "parachuteShake 0.6s";
+    // Rotate and scale the parachute
+    parachuteImage.style.animation = "rotateScaleUp 1s ease";
 
     // Show the memory text
     memory3Reveal.style.display = "block";
@@ -127,11 +132,31 @@ let bikeImage = document.getElementById("bikeImage");
 // Get the hidden Memory 4 text
 let memory4Reveal = document.getElementById("memory4Reveal");
 
-
 bikeImage.addEventListener("click", function () {
 
+    // Shoot the bike image off the screen
     bikeImage.style.animation = "bikeRide 1s ease forwards";
 
+    // Show the memory text
     memory4Reveal.style.display = "block";
+
+    // Fade in the memory text
+    memory4Reveal.style.animation = "memory4Fade 1.2s ease forwards";
+
+});
+
+// ----------------------------------------------------------- //
+// RESTART //
+
+// Get the restart button
+let restartButton = document.getElementById("restartButton");
+
+// When the user clicks restart
+restartButton.addEventListener("click", function () {
+
+    window.scrollTo(0, 0);
+
+    // Reload the page and start the time capsule again
+    location.reload();
 
 });

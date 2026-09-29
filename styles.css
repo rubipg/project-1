@@ -1,3 +1,5 @@
+/* Color Palette */
+
 /* #FFD972 - warm yellow for the opening */
 /* #FCBCB8 - soft pink for Memory 1 */
 /* #C7EAE4 - light blue/green for Memory 2 */
@@ -9,10 +11,11 @@
 /* Basic page setup */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
+/* Makes the background not scroll when the welcome popup is open */
 .popup-open {
     overflow: hidden;
 }
@@ -21,17 +24,16 @@ body {
 
 /* WELCOME POP-UP */
 
-/* Darkens the Welcome pop-up screen */
+/* Sets up the Welcome pop-up screen */
 #welcomePopup {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(92, 64, 51, 0.7);
+    background-color: rgba(75, 38, 21, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
+    /* z-index positions on the popup screen on top of the opening scene    */
     z-index: 10;
 }
 
@@ -41,9 +43,9 @@ body {
     width: 450px;
     max-width: 80%;
     padding: 45px 40px;
-    border: 2px solid #8B5E3C;
+    border: 10px solid #8B5E3C;
     transform: rotate(-5deg);
-    box-shadow: 10px 10px 0px black;
+    box-shadow: 10px 10px 10px black;
     text-align: center;
 }
 
@@ -57,23 +59,22 @@ body {
 .popup-box p {
     font-family: Georgia, serif;
     font-size: 20px;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #5C4033;
 }
 
 /* Enter button */
 #enterButton {
     background-color: #EFA7A7;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 /* Key Button styling */
 button {
-    margin-top: 20px;
     padding: 12px 24px;
     font-size: 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     color: white;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -101,8 +102,6 @@ button:hover {
 /* Headings */
 h1 {
     font-size: 45px;
-    margin-top: 30px;
-    margin-bottom: 15px;
     color: #5C4033;
 }
 
@@ -114,7 +113,7 @@ h2 {
 /* Paragraphs */
 p {
     font-size: 24px;
-    max-width: 600px;
+    max-width: 650px;
     line-height: 1.5;
     color: #5C4033;
 }
@@ -136,8 +135,6 @@ p {
     background-color: #FFD972;
     /* Brown box border */
     border: 30px solid #8B5E3C;
-    /* Keeps the border inside the screen */
-    box-sizing: border-box;
     position: relative;
 }
 
@@ -173,7 +170,6 @@ p {
     animation: worksheetPulse 2s infinite;
 }
 
-
 /* Shows that the worksheet can be clicked */
 .worksheet-card:hover {
     transform: scale(1.05);
@@ -193,14 +189,6 @@ p {
 }
 
 /* Math questions floating around the worksheets */
-.math-questions {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* Individual math questions */
 .math-question {
     position: absolute;
     font-size: 28px;
@@ -302,31 +290,32 @@ p {
     animation-delay: 0.9s;
 }
 
-/* Makes the recorder gently move */
-#recorderImage {
-    transition: transform 0.3s ease;
+/* Recorder moves when the user hovers over it */
+#recorderImage:hover {
+    transform: scale(1.05);
     cursor: pointer;
 }
 
-/* Recorder moves when the user hovers over it */
-#recorderImage:hover {
-    transform: rotate(1deg) scale(1.05);
+#memory2Reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-#memory2Reveal {
-    display: none;
+#memory2Reveal.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Style both reveal messages */
 #memory2Reveal p {
-    font-size: 25px;
+    font-size: 20px;
     width: 400px;
 }
 
 /* ----------------------------------------------------------- */
 
 /* MEMORY 3 - GYM CLASS */
-
 
 /* Parachute */
 #memory3 {
@@ -340,7 +329,6 @@ p {
     width: 850px;
     max-width: 500px;
     height: auto;
-    cursor: pointer;
 }
 
 /* Parachute moves when the user hovers */
@@ -355,10 +343,9 @@ p {
 
 /* Makes the reveal text bigger */
 #memory3Reveal p {
-    font-size: 32px;
+    font-size: 25px;
     font-weight: bold;
 }
-
 
 /* ----------------------------------------------------------- */
 
@@ -369,22 +356,21 @@ p {
     background-color: #EFA7A7;
 }
 
-/* * Makes the bike move smoothly */
-
 #bikeImage {
     width: 600px;
-    max-width: none;
+    max-width: 80%;
     cursor: pointer;
-    transition: transform 1s ease;
 }
 
-/* Bikes move when the user hovers */
-#bikeImage:hover {
-    transform: rotate(-2deg) scale(1.05);
-}
-
+/* Memory 4 text starts hidden */
 #memory4Reveal {
     display: none;
+}
+
+#memory4Reveal p {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
 }
 
 /* ----------------------------------------------------------- */
@@ -396,6 +382,11 @@ p {
     border: 30px solid #8B5E3C;
     box-sizing: border-box;
     position: relative;
+}
+
+#restartButton {
+    background-color: pink;
+    margin: 20px;
 }
 
 /* ----------------------------------------------------------- */
@@ -440,6 +431,33 @@ p {
     animation: arrowMove 1.5s infinite;
 }
 
+
+/* ----------------------------------------------------------- */
+
+/* Makes the following images have a slight pusle  */
+#recorderImage,
+#parachuteImage,
+#bikeImage {
+    animation: imagePulse 2s infinite;
+}
+
+/* Gentle pulse */
+@keyframes imagePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
 /* ----------------------------------------------------------- */
 
 /* ANIMATIONS */
@@ -469,7 +487,7 @@ p {
     }
 
     50% {
-        transform: scale(1.02);
+        transform: scale(1.05);
     }
 
     100% {
@@ -583,41 +601,291 @@ p {
 
 /* MEMORY 3 */
 
-/* Parachute shakes when clicked */
-@keyframes parachuteShake {
-
+/* Gym parachute animation */
+@keyframes rotateScaleUp {
     0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-10px);
+        transform: scale(1) rotate(0deg);
     }
 
     50% {
-        transform: translateX(10px);
-    }
-
-    75% {
-        transform: translateX(-10px);
+        transform: scale(2) rotate(180deg);
     }
 
     100% {
-        transform: translateX(0);
+        transform: scale(1) rotate(360deg);
     }
-
 }
 
 /* ----------------------------------------------------------- */
 /* MEMORY 4  */
 
-/* Bikes ride from the left side to the right side */
+/* Bike shoots off the screen */
 @keyframes bikeRide {
     0% {
         transform: translateX(0);
+        opacity: 1;
     }
 
     100% {
-        transform: translateX(50%);
+        transform: translateX(100vw);
+        opacity: 0;
     }
+}
+
+
+@keyframes memory4Fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* Responsive Design */
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+
+
+@media (max-width: 600px) {
+
+    /* Basic phone spacing */
+    .scene {
+        min-height: 100vh;
+        padding: 20px 15px;
+        overflow: hidden;
+    }
+
+    /* ------------------------------------------------------- */
+    /* WELCOME POP-UP */
+
+    .popup-box {
+        width: 75%;
+        max-width: none;
+        padding: 30px 20px;
+        border-width: 7px;
+    }
+
+    .popup-box h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .popup-box p {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    #enterButton {
+        font-size: 17px;
+        padding: 10px 20px;
+    }
+
+    /* ------------------------------------------------------- */
+    /* HEADINGS */
+
+    h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 32px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 18px;
+        max-width: 90%;
+        line-height: 1.4;
+    }
+
+    /* ------------------------------------------------------- */
+    /* OPENING */
+
+    #opening {
+        border-width: 15px;
+    }
+
+    .box-label {
+        padding: 30px 35px;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .tape {
+        width: 90px;
+        height: 22px;
+    }
+
+    .tape-left {
+        top: 10px;
+        left: -20px;
+    }
+
+    .tape-right {
+        top: 10px;
+        right: -20px;
+    }
+
+    .scroll-arrow {
+        font-size: 32px;
+        margin-top: 15px;
+    }
+
+    /* ------------------------------------------------------- */
+    /* MEMORY 1 - WORKSHEET */
+
+    .memory-note {
+        font-size: 17px;
+        max-width: 90%;
+    }
+
+    /* Put the three worksheets in one column */
+    .worksheet-grid {
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px auto;
+    }
+
+    .worksheet-card {
+        width: 170px;
+    }
+
+    .worksheet-card img {
+        width: 170px;
+    }
+
+    /* Move math questions closer to the center */
+    .math-question {
+        font-size: 18px;
+    }
+
+    .question-one {
+        top: 27%;
+        left: 5%;
+    }
+
+    .question-two {
+        top: 27%;
+        right: 5%;
+    }
+
+    .question-three {
+        top: 53%;
+        left: 3%;
+    }
+
+    .question-four {
+        top: 53%;
+        right: 3%;
+    }
+
+    .question-five {
+        bottom: 12%;
+        left: 5%;
+    }
+
+    .question-six {
+        bottom: 12%;
+        right: 5%;
+    }
+
+    #memory1Reveal {
+        margin-top: 10px;
+    }
+
+    #memory1Reveal p:first-child {
+        font-size: 30px;
+    }
+
+    #memory1Reveal p:last-child {
+        font-size: 21px;
+    }
+
+    /* ------------------------------------------------------- */
+    /* MEMORY 2 - MUSIC */
+
+    .music-notes {
+        gap: 20px;
+        margin: 5px 0;
+    }
+
+    .music-notes span {
+        font-size: 27px;
+    }
+
+    #recorderImage {
+        width: 260px;
+        max-width: 85%;
+    }
+
+    #memory2Reveal p {
+        font-size: 18px;
+        width: auto;
+        max-width: 90%;
+    }
+
+    /* ------------------------------------------------------- */
+    /* MEMORY 3 - PARACHUTE */
+
+    #parachuteImage {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    #memory3Reveal p {
+        font-size: 20px;
+    }
+
+    /* ------------------------------------------------------- */
+    /* MEMORY 4 - BIKES */
+
+    #bikeImage {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    #memory4Reveal p {
+        font-size: 20px;
+    }
+
+    /* ------------------------------------------------------- */
+    /* ENDING */
+
+    #ending {
+        border-width: 15px;
+        padding: 20px;
+    }
+
+    #ending .box-label {
+        padding: 30px 25px;
+        font-size: 18px;
+    }
+
+    #ending p {
+        font-size: 18px;
+        max-width: 90%;
+    }
+
+    #restartButton {
+        font-size: 16px;
+        padding: 10px 18px;
+        margin: 15px;
+    }
+
+    /* ------------------------------------------------------- */
+    /* BUTTONS */
+
+    button:hover {
+        transform: none;
+    }
+
 }
