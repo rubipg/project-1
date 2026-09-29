@@ -8,10 +8,12 @@ let welcomePopup = document.getElementById("welcomePopup");
 let enterButton = document.getElementById("enterButton");
 
 // When the user clicks Enter
-enterButton.addEventListener("click", function() {
+enterButton.addEventListener("click", function () {
 
     // Hide the welcome pop-up
     welcomePopup.style.display = "none";
+
+    document.getElementById("body").classList.remove("popup-open")
 
 });
 
@@ -36,7 +38,7 @@ let timerStarted = false;
 // When the user clicks a worksheet
 for (let i = 0; i < worksheets.length; i++) {
 
-    worksheets[i].addEventListener("click", function() {
+    worksheets[i].addEventListener("click", function () {
 
         // Only start the timer once
         if (timerStarted == false) {
@@ -52,7 +54,7 @@ for (let i = 0; i < worksheets.length; i++) {
             countdownSound.play();
 
             // Wait 10 seconds
-            setTimeout(function() {
+            setTimeout(function () {
 
                 // Hide the math questions
                 for (let i = 0; i < mathQuestions.length; i++) {
@@ -83,7 +85,7 @@ let memory2Reveal = document.getElementById("memory2Reveal");
 let recorderSound = new Audio("Assets/Sound/Hot_Cross_Buns.mp3");
 
 // When the user clicks the recorder
-recorderImage.addEventListener("click", function() {
+recorderImage.addEventListener("click", function () {
 
     // Shake the recorder
     recorderImage.style.animation = "recorderShake 0.6s";
@@ -106,7 +108,7 @@ let parachuteImage = document.getElementById("parachuteImage");
 let memory3Reveal = document.getElementById("memory3Reveal");
 
 // When the user clicks the parachute
-parachuteImage.addEventListener("click", function() {
+parachuteImage.addEventListener("click", function () {
 
     // Shake the parachute
     parachuteImage.style.animation = "parachuteShake 0.6s";
@@ -126,7 +128,7 @@ let bikeImage = document.getElementById("bikeImage");
 let memory4Reveal = document.getElementById("memory4Reveal");
 
 
-bikeImage.addEventListener("click", function() {
+bikeImage.addEventListener("click", function () {
 
     bikeImage.style.animation = "bikeRide 1s ease forwards";
 

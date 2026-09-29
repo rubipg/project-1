@@ -13,6 +13,10 @@ body {
     text-align: center;
 }
 
+.popup-open {
+    overflow: hidden;
+}
+
 /* ----------------------------------------------------------- */
 
 /* WELCOME POP-UP */
@@ -70,7 +74,6 @@ button {
     font-size: 20px;
     border: none;
     border-radius: 10px;
-    background-color: #5C4033;
     color: white;
     cursor: pointer;
     transition: transform 0.2s ease;
