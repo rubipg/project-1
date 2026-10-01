@@ -10,7 +10,7 @@ let enterButton = document.getElementById("enterButton");
 // When the user clicks Enter, run this funtion
 enterButton.addEventListener("click", function () {
 
-    // Chnages the pop-up's display to none so it disappears
+    // Changes the pop-up's display to none so it disappears
     welcomePopup.style.display = "none";
     // Removes the popup-class from the body
     // This allows the user to interact with and scroll through the page
