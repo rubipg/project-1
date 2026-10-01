@@ -7,12 +7,13 @@ let welcomePopup = document.getElementById("welcomePopup");
 // Get the Enter button
 let enterButton = document.getElementById("enterButton");
 
-// When the user clicks Enter
+// When the user clicks Enter, run this funtion
 enterButton.addEventListener("click", function () {
 
-    // Hide the welcome pop-up
+    // Chnages the pop-up's display to none so it disappears
     welcomePopup.style.display = "none";
-
+    // Removes the popup-class from the body
+    // This allows the user to interact with and scroll through the page
     document.getElementById("body").classList.remove("popup-open")
 
 });
@@ -20,32 +21,40 @@ enterButton.addEventListener("click", function () {
 // ----------------------------------------------------------- //
 // MEMORY 1 - MULTIPLICATION WORKSHEET //
 
-// Get the worksheets
+// Get ALL the worksheets with querySeLectorAll
 let worksheets = document.querySelectorAll(".worksheet-card");
 
-// Get the math questions
+// Get ALL the math questions querySeLectorAll
 let mathQuestions = document.querySelectorAll(".math-question");
 
 // Get the hidden Memory 1 text
 let memory1Reveal = document.getElementById("memory1Reveal");
 
-// Create the countdown sound
+// Create a new Audio object and connect it to my countdown sound file
 let countdownSound = new Audio("Assets/Sound/countdown.wav");
 
 // Keeps track of whether the countdown has started
+// It starts as false because the user has not clicked on a worksheet yet
 let timerStarted = false;
 
 // When the user clicks a worksheet
+// I starts at 0 because arrays/collections use index numbers starting at 0.
+// i++ increases i by 1 each time the loop runs.
 for (let i = 0; i < worksheets.length; i++) {
 
+    // Add a click event to each worksheet so the user has options to click whichever worksheet.
+    // The function will run when the user clicks that worksheet.
     worksheets[i].addEventListener("click", function () {
 
         // Only start the timer once
+        // Check if the timer has NOT started yet.
+        // == compares the value of timerStarted to false.
         if (timerStarted == false) {
 
+            // Change timerStarted to true so the timer cannot start again.
             timerStarted = true;
 
-            // Stop the worksheet animation
+            // Stop the worksheet animation using the loop on every worksheet after the user makes their first click
             for (let i = 0; i < worksheets.length; i++) {
                 worksheets[i].querySelector("img").style.animation = "none";
             }
@@ -53,7 +62,8 @@ for (let i = 0; i < worksheets.length; i++) {
             // Play the countdown sound
             countdownSound.play();
 
-            // Wait 10 seconds
+            // setTimeout waits for a specific amount of time before running the code inside the function.
+            // 10000 milliseconds = 10 seconds.
             setTimeout(function () {
 
                 // Hide the math questions
@@ -95,6 +105,8 @@ recorderImage.addEventListener("click", function () {
 
     // Stop shaking when the music ends
     recorderSound.onended = function () {
+
+        // Remove the animation by setting it to none
         recorderImage.style.animation = "none";
     };
 
@@ -135,6 +147,7 @@ let memory4Reveal = document.getElementById("memory4Reveal");
 bikeImage.addEventListener("click", function () {
 
     // Shoot the bike image off the screen
+    // The "forwards" part keeps the bike at its final position after the animation finishes.
     bikeImage.style.animation = "bikeRide 1s ease forwards";
 
     // Show the memory text
@@ -154,6 +167,7 @@ let restartButton = document.getElementById("restartButton");
 // When the user clicks restart
 restartButton.addEventListener("click", function () {
 
+    // Scroll the page back to the very top.
     window.scrollTo(0, 0);
 
     // Reload the page and start the time capsule again
